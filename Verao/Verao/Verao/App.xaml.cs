@@ -14,7 +14,7 @@ namespace Verao
             LiveReload.Init();
             InitializeComponent();
             FlowListView.Init();
-            MainPage = new HomeView();
+            MainPage = new NavigationPage(new HomeView());
         }
 
         protected override void OnStart()

@@ -42,7 +42,8 @@
                     FlowColumnCount="3" 
                     FlowColumnExpand="First"
                     SeparatorVisibility="None"
-                    HasUnevenRows="True">
+                    HasUnevenRows="True"
+                    FlowItemTappedCommand="{Binding PraiaTapped}">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
                             <Grid
