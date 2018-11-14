@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             xmlns:controls1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="Verao.Views.Principal.HomeView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="QuemAssisteStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0, 12" />
+            </Style>
+
+            <Style x:Key="ProfileItemTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Text="Quem assiste?"
+                Style="{StaticResource QuemAssisteStyle}"/>
+            <Grid 
+                Grid.Row="1"    
+                Padding="48, 0">-->
+                <flv:FlowListView
+                    FlowItemsSource="{Binding Praias}"
+                    BackgroundColor="White"
+                    FlowColumnCount="3" 
+                    FlowColumnExpand="First"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="True">
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <Grid
+                                HeightRequest="200"
+                                Margin="0, 0, 0, 12">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <controls1:CircleImage Source="{Binding Imagem}" Aspect="AspectFit" VerticalOptions="CenterAndExpand" BorderThickness="2" Grid.Row="0">
+                                    <controls1:CircleImage.WidthRequest >
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="200"
+                                            Android="200"/>
+                                    </controls1:CircleImage.WidthRequest>
+                                    <controls1:CircleImage.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="200"
+                                            Android="200"/>
+                                    </controls1:CircleImage.HeightRequest>
+                                </controls1:CircleImage>
+                                <Label 
+                                    Grid.Row="1"
+                                    Text="{Binding Nome}"
+                                    Style="{StaticResource ProfileItemTextStyle}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+            <!--</Grid>
+        </Grid>-->
+    </ContentPage.Content>
+</ContentPage>
